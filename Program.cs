@@ -51,6 +51,21 @@ app.MapGet("/weatherforecast", async (string? city, IHttpClientFactory httpClien
     }
 }).WithName("GetWeatherForecast");
 
+// Abrir automáticamente la URL de Swagger en el navegador predeterminado
+try
+{
+    var swaggerUrl = "https://localhost:5001/swagger";
+    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+    {
+        FileName = swaggerUrl,
+        UseShellExecute = true
+    });
+}
+catch
+{
+    // Si falla, no interrumpe la ejecución
+}
+
 app.Run();
 
 record WeatherForecast(string City, DateOnly Date, int TemperatureC, string? Summary)

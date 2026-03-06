@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherapi
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherapi
+  template:
+    metadata:
+      labels:
+        app: weatherapi
+    spec:
+      containers:
+      - name: weatherapi
+        image: c-cllano/weatherapi:latest
+        ports:
+        - containerPort: 80
