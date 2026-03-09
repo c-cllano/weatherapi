@@ -1,12 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: weatherapi-service
+  name: weatherapi
   namespace: staging
+
 spec:
   selector:
     app: weatherapi
+
   ports:
   - port: 80
     targetPort: 80
+    protocol: TCP
+
   type: NodePort

@@ -3,18 +3,46 @@ kind: Deployment
 metadata:
   name: weatherapi
   namespace: staging
+
 spec:
   replicas: 1
+
   selector:
     matchLabels:
       app: weatherapi
+
   template:
     metadata:
       labels:
         app: weatherapi
+
     spec:
       containers:
       - name: weatherapi
         image: c-cllano/weatherapi:latest
+        imagePullPolicy: Always
+
         ports:
         - containerPort: 80
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+
+        readinessProbe:
+          httpGet:
+            path: /weatherforecast
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+        livenessProbe:
+          httpGet:
+            path: /weatherforecast
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
