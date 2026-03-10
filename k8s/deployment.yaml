@@ -2,11 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: weatherapi
-  namespace: staging
-
 spec:
   replicas: 1
-
   selector:
     matchLabels:
       app: weatherapi
@@ -19,7 +16,7 @@ spec:
     spec:
       containers:
       - name: weatherapi
-        image: c-cllano/weatherapi:latest
+        image: ghcr.io/c-cllano/weatherapi:latest
         imagePullPolicy: Always
 
         ports:
