@@ -8,7 +8,7 @@ branches:
 jobs:
 build-and-deploy:
 
-```
+
 runs-on: ubuntu-latest
 
 steps:
@@ -54,4 +54,4 @@ steps:
 # Deploy aplicación
 - name: Deploy to Kubernetes
   run: kubectl apply -f k8s/deployment.yaml
-```
+
