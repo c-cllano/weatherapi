@@ -34,7 +34,9 @@ jobs:
           kubectl cluster-info
 
       - name: Debug kubeconfig server
-        run: grep 'server:' $HOME/.kube/config
+        run: |
+          whoami
+          grep 'server:' $HOME/.kube/config
 
       - name: Test Kubernetes connection
         run: kubectl get nodes
