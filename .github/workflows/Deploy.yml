@@ -13,9 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug Kubernetes
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/weatherapi:latest .
+
+      - name: Push Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/weatherapi:latest
+
+      - name: Deploy to Kubernetes
         run: |
-          whoami
-          echo $HOME
-          ls -la $HOME/.kube
-          kubectl config view
+          kubectl --kubeconfig=/home/adm_c-cllano/.kube/config apply -f k8s/deployment.yaml
