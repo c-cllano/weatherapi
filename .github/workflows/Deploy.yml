@@ -28,4 +28,5 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
+	  kubectl --kubeconfig=/home/adm_c-cllano/.kube/config cluster-info
           kubectl --kubeconfig=/home/adm_c-cllano/.kube/config apply -f k8s/deployment.yaml
