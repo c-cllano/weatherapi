@@ -27,4 +27,5 @@ jobs:
         run: docker push ghcr.io/${{ github.repository_owner }}/weatherapi:latest
 
       - name: Deploy to Kubernetes
+	export KUBECONFIG=/home/adm_c-cllano/.kube/config
         run: kubectl apply -f k8s/deployment.yaml
