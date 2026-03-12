@@ -28,5 +28,5 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-           kubectl --kubeconfig=/home/adm_c-cllano/.kube/config get resourcequota -A
-           kubectl --kubeconfig=/home/adm_c-cllano/.kube/config apply -f k8s/deployment.yaml
+    	    export KUBECONFIG=/home/adm_c-cllano/.kube/config
+    	    kubectl apply --validate=false -f k8s/deployment.yaml
