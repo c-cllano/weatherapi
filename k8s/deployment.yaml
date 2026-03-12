@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: weatherapi
+  labels:
+    app: weatherapi
+
 spec:
   replicas: 1
   selector:
@@ -13,7 +16,7 @@ spec:
         app: weatherapi
     spec:
       containers:
-      - name: weatherapi
-        image: ghcr.io/c-cllano/weatherapi:latest
-        ports:
-        - containerPort: 8080
+        - name: weatherapi
+          image: ghcr.io/c-cllano/weatherapi:latest
+          ports:
+            - containerPort: 8080
