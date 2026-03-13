@@ -33,6 +33,29 @@ jobs:
           export KUBECONFIG=$HOME/.kube/config
           kubectl cluster-info
 
+      - name: Debug - Show kubeconfig server field
+        run: |
+          echo "=== Contenido del campo server ==="
+          grep 'server:' $HOME/.kube/config
+         echo "=== Tamaño del archivo kubeconfig ==="
+         wc -l $HOME/.kube/config
+        echo "=== Primeras 20 líneas del kubeconfig ==="
+        head -20 $HOME/.kube/config
+
+      - name: Debug - Show KUBECONFIG variable
+        run: |
+          echo "=== Variable KUBECONFIG ==="
+          echo $KUBECONFIG
+          echo "=== Usuario actual ==="
+          whoami
+          echo "=== Directorio actual ==="
+          pwd
+ 
+      - name: Debug - Test kubectl connection verbose
+        run: |
+        echo "=== Intentando conexión a kubectl ==="
+        kubectl cluster-info --v=6
+
       - name: Debug kubeconfig server
         run: |
           whoami
