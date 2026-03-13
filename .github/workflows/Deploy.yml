@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: self-hosted
+    env:
+      KUBECONFIG: ${{ github.workspace }}/.kube/config
 
     steps:
       - name: Checkout repository
@@ -28,52 +30,65 @@ jobs:
 
       - name: Configure kubeconfig
         run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" > $HOME/.kube/config
-          export KUBECONFIG=$HOME/.kube/config
+          mkdir -p $(dirname $KUBECONFIG)
+          echo "${{ secrets.KUBE_CONFIG }}" > $KUBECONFIG
+          chmod 600 $KUBECONFIG
+          echo "=== Kubeconfig creado en: $KUBECONFIG ==="
+          ls -la $KUBECONFIG
+
+      - name: Debug 1 - Verificar contenido del kubeconfig
+        run: |
+          echo "=== KUBECONFIG variable ==="
+          echo $KUBECONFIG
+          echo ""
+          echo "=== Contenido completo del kubeconfig ==="
+          cat $KUBECONFIG
+          echo ""
+          echo "=== Campo server ==="
+          grep 'server:' $KUBECONFIG
+
+      - name: Debug 2 - Verificar archivo existe y permisos
+        run: |
+          echo "=== Verificar archivo ==="
+          if [ -f "$KUBECONFIG" ]; then
+            echo "✓ Archivo existe"
+            ls -la "$KUBECONFIG"
+            echo "Tamaño: $(wc -c < $KUBECONFIG) bytes"
+          else
+            echo "✗ Archivo NO existe"
+            exit 1
+          fi
+
+      - name: Debug 3 - Test kubectl config view
+        run: |
+          echo "=== kubectl config view ==="
+          kubectl config view
+          echo ""
+          echo "=== kubectl config current-context ==="
+          kubectl config current-context
+
+      - name: Debug 4 - Test kubectl cluster-info
+        run: |
+          echo "=== kubectl cluster-info ==="
           kubectl cluster-info
 
-      - name: Debug - Show kubeconfig server field
+      - name: Debug 5 - Test kubectl get nodes
         run: |
-          echo "=== Contenido del campo server ==="
-          grep 'server:' $HOME/.kube/config
-          echo "=== Tamaño del archivo kubeconfig ==="
-          wc -l $HOME/.kube/config
-          echo "=== Primeras 20 líneas del kubeconfig ==="
-          head -20 $HOME/.kube/config
+          echo "=== kubectl get nodes ==="
+          kubectl get nodes
 
-      - name: Debug - Show KUBECONFIG variable
+      - name: Debug 6 - Verificar resourcequotas ANTES de apply
         run: |
-          echo "=== Variable KUBECONFIG ==="
-          echo $KUBECONFIG
-          echo "=== Usuario actual ==="
-          whoami
-          echo "=== Directorio actual ==="
-          pwd
- 
-      - name: Debug - Test kubectl connection verbose
-        run: |
-          echo "=== Intentando conexión a kubectl ==="
-          kubectl cluster-info --v=6
+          echo "=== kubectl get resourcequotas en default namespace ==="
+          kubectl get resourcequotas -n default || echo "Sin resourcequotas"
 
-      - name: Debug kubeconfig server
+      - name: Debug 7 - Verificar deployment.yaml
         run: |
-          whoami
-          grep 'server:' $HOME/.kube/config
-
-      - name: Test Kubernetes connection
-        run: kubectl get nodes
-
-      - name: Debug - Check deployment file
-        run: |
-          echo "=== Contenido del archivo k8s/deployment.yaml ==="
+          echo "=== Contenido de k8s/deployment.yaml ==="
           cat k8s/deployment.yaml
-          echo ""
-          echo "=== Intentar listar namespaces ==="
-          kubectl get namespaces
-          echo ""
-          echo "=== Intentar listar resourcequotas en default namespace ==="
-          kubectl get resourcequotas -n default
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f k8s/deployment.yaml
+        run: |
+          echo "=== Ejecutando kubectl apply ==="
+          echo "KUBECONFIG=$KUBECONFIG"
+          kubectl apply -f k8s/deployment.yaml -v=6
