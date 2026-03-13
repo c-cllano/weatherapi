@@ -37,10 +37,10 @@ jobs:
         run: |
           echo "=== Contenido del campo server ==="
           grep 'server:' $HOME/.kube/config
-         echo "=== Tamaño del archivo kubeconfig ==="
-         wc -l $HOME/.kube/config
-        echo "=== Primeras 20 líneas del kubeconfig ==="
-        head -20 $HOME/.kube/config
+          echo "=== Tamaño del archivo kubeconfig ==="
+          wc -l $HOME/.kube/config
+          echo "=== Primeras 20 líneas del kubeconfig ==="
+          head -20 $HOME/.kube/config
 
       - name: Debug - Show KUBECONFIG variable
         run: |
@@ -53,8 +53,8 @@ jobs:
  
       - name: Debug - Test kubectl connection verbose
         run: |
-        echo "=== Intentando conexión a kubectl ==="
-        kubectl cluster-info --v=6
+          echo "=== Intentando conexión a kubectl ==="
+          kubectl cluster-info --v=6
 
       - name: Debug kubeconfig server
         run: |
