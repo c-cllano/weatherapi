@@ -91,7 +91,7 @@ jobs:
         run: |
           echo "=== Ejecutando kubectl apply ==="
           echo "KUBECONFIG=$KUBECONFIG"
-	  kubectl apply -f k8s/deployment.yaml --validate=false
+          kubectl apply -f k8s/deployment.yaml --validate=false
 
 
 
