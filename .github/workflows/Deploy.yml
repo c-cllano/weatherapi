@@ -64,5 +64,16 @@ jobs:
       - name: Test Kubernetes connection
         run: kubectl get nodes
 
+      - name: Debug - Check deployment file
+        run: |
+          echo "=== Contenido del archivo k8s/deployment.yaml ==="
+          cat k8s/deployment.yaml
+          echo ""
+          echo "=== Intentar listar namespaces ==="
+          kubectl get namespaces
+          echo ""
+          echo "=== Intentar listar resourcequotas en default namespace ==="
+          kubectl get resourcequotas -n default
+
       - name: Deploy to Kubernetes
         run: kubectl apply -f k8s/deployment.yaml
