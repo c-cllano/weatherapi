@@ -9,6 +9,7 @@ builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // Habilita Swagger/OpenAPI SIEMPRE CELL cambio 17 SIEMPRE, para facilitar el desarrollo y pruebas
+// Comentario para generar un cambio
 app.MapOpenApi();
 app.UseSwagger();
 app.UseSwaggerUI();
