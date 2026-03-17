@@ -33,13 +33,15 @@ app.MapGet("/weatherforecast", async (string? city, IHttpClientFactory httpClien
             return Results.NotFound($"No se encontró información para la ciudad '{city}'.");
         }
         var json = await response.Content.ReadAsStringAsync();
+        DateTime fecha = new DateTime();
+        fecha = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy").ToString());
         using var doc = System.Text.Json.JsonDocument.Parse(json);
         var root = doc.RootElement;
         var tempC = root.GetProperty("main").GetProperty("temp").GetDouble();
         var summary = root.GetProperty("weather")[0].GetProperty("description").GetString();
         var forecast = new WeatherForecast(
             city,
-            DateOnly.FromDateTime(DateTime.Now),
+            DateOnly.FromDateTime(fecha),
             (int)tempC,
             summary
         );
