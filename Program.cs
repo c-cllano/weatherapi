@@ -51,19 +51,23 @@ app.MapGet("/weatherforecast", async (string? city, IHttpClientFactory httpClien
     }
 }).WithName("GetWeatherForecast");
 
-// Abrir automáticamente la URL de Swagger en el navegador predeterminado
-try
+// Solo abre el navegador en desarrollo local, no en contenedores
+var isRunningInContainer = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+if (!isRunningInContainer)
 {
-    var swaggerUrl = "https://localhost:5001/swagger";
-    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+    try
     {
-        FileName = swaggerUrl,
-        UseShellExecute = true
-    });
-}
-catch
-{
-    // Si falla, no interrumpe la ejecución
+        var swaggerUrl = "https://localhost:5001/swagger";
+        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+        {
+            FileName = swaggerUrl,
+            UseShellExecute = true
+        });
+    }
+    catch
+    {
+        // Si falla, no interrumpe la ejecución
+    }
 }
 
 app.Run();
