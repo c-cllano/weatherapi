@@ -35,8 +35,8 @@ app.MapGet("/weatherforecast", async (string? city, IHttpClientFactory httpClien
         }
         var json = await response.Content.ReadAsStringAsync();
         DateTime fecha = new DateTime();
-        //      fecha = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy").ToString());
-             fecha = DateTime.Parse(DateTime.Now.AddDays(-5).ToString());
+          //fecha = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy").ToString());
+        fecha = DateTime.Parse(DateTime.Now.AddDays(-1).ToString());
         using var doc = System.Text.Json.JsonDocument.Parse(json);
         var root = doc.RootElement;
         var tempC = root.GetProperty("main").GetProperty("temp").GetDouble();

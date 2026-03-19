@@ -35,3 +35,40 @@ C:\Users\c-cllano\source\repos\weatherapi2\obj\Debug\net9.0\refint\WeatherApi.dl
 C:\Users\c-cllano\source\repos\weatherapi2\obj\Debug\net9.0\WeatherApi.pdb
 C:\Users\c-cllano\source\repos\weatherapi2\obj\Debug\net9.0\WeatherApi.genruntimeconfig.cache
 C:\Users\c-cllano\source\repos\weatherapi2\obj\Debug\net9.0\ref\WeatherApi.dll
+D:\proyecto weatherapi\bin\Debug\net9.0\appsettings.Development.json
+D:\proyecto weatherapi\bin\Debug\net9.0\appsettings.json
+D:\proyecto weatherapi\bin\Debug\net9.0\WeatherApi.staticwebassets.endpoints.json
+D:\proyecto weatherapi\bin\Debug\net9.0\WeatherApi.exe
+D:\proyecto weatherapi\bin\Debug\net9.0\WeatherApi.deps.json
+D:\proyecto weatherapi\bin\Debug\net9.0\WeatherApi.runtimeconfig.json
+D:\proyecto weatherapi\bin\Debug\net9.0\WeatherApi.dll
+D:\proyecto weatherapi\bin\Debug\net9.0\WeatherApi.pdb
+D:\proyecto weatherapi\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\proyecto weatherapi\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\proyecto weatherapi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\proyecto weatherapi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\proyecto weatherapi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.csproj.AssemblyReference.cache
+D:\proyecto weatherapi\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.AssemblyInfoInputs.cache
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.AssemblyInfo.cs
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.csproj.CoreCompileInputs.cache
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.MvcApplicationPartsAssemblyInfo.cs
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.MvcApplicationPartsAssemblyInfo.cache
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.sourcelink.json
+D:\proyecto weatherapi\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\proyecto weatherapi\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\proyecto weatherapi\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\proyecto weatherapi\obj\Debug\net9.0\scopedcss\bundle\WeatherApi.styles.css
+D:\proyecto weatherapi\obj\Debug\net9.0\staticwebassets.build.json
+D:\proyecto weatherapi\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\proyecto weatherapi\obj\Debug\net9.0\staticwebassets.development.json
+D:\proyecto weatherapi\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\proyecto weatherapi\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.csproj.Up2Date
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.dll
+D:\proyecto weatherapi\obj\Debug\net9.0\refint\WeatherApi.dll
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.pdb
+D:\proyecto weatherapi\obj\Debug\net9.0\WeatherApi.genruntimeconfig.cache
+D:\proyecto weatherapi\obj\Debug\net9.0\ref\WeatherApi.dll
