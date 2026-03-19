@@ -56,7 +56,7 @@ app.MapGet("/weatherforecast", async (string? city, IHttpClientFactory httpClien
 }).WithName("GetWeatherForecast");
 
 // Solo abre el navegador en desarrollo local, no en contenedores
-var isRunningInContainer = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+/* var isRunningInContainer = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
 if (!isRunningInContainer)
 {
     try
@@ -72,7 +72,7 @@ if (!isRunningInContainer)
     {
         // Si falla, no interrumpe la ejecución
     }
-}
+} */
 
 app.Run();
 
