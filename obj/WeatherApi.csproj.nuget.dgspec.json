@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\proyecto weatherapi\\WeatherApi.csproj": {}
+    "C:\\Users\\c-cllano\\source\\repos\\weatherapi2\\WeatherApi.csproj": {}
   },
   "projects": {
-    "D:\\proyecto weatherapi\\WeatherApi.csproj": {
+    "C:\\Users\\c-cllano\\source\\repos\\weatherapi2\\WeatherApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\proyecto weatherapi\\WeatherApi.csproj",
+        "projectUniqueName": "C:\\Users\\c-cllano\\source\\repos\\weatherapi2\\WeatherApi.csproj",
         "projectName": "WeatherApi",
-        "projectPath": "D:\\proyecto weatherapi\\WeatherApi.csproj",
-        "packagesPath": "C:\\Users\\lcarbonell\\.nuget\\packages\\",
-        "outputPath": "D:\\proyecto weatherapi\\obj\\",
+        "projectPath": "C:\\Users\\c-cllano\\source\\repos\\weatherapi2\\WeatherApi.csproj",
+        "packagesPath": "C:\\Users\\c-cllano\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\c-cllano\\source\\repos\\weatherapi2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lcarbonell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\c-cllano\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

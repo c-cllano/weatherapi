@@ -14,7 +14,7 @@ app.MapOpenApi();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 const string apiKey = "f1bea3ec2120c5b99da5f539a978afc2";
 
@@ -61,7 +61,7 @@ if (!isRunningInContainer)
 {
     try
     {
-        var swaggerUrl = "https://localhost:5001/swagger";
+        var swaggerUrl = "http://localhost:5000/swagger"; // Puerto 5000 para HTTP
         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
         {
             FileName = swaggerUrl,
